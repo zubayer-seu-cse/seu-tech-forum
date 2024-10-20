@@ -2,11 +2,21 @@
 import { firebaseAuthContext } from '@/components/auth/FirebaseAuthProvider'
 import { auth } from '@/lib/firebase/config'
 import { signOut } from 'firebase/auth'
+import { Dropdown } from 'flowbite-react'
 import Link from 'next/link'
+import Script from 'next/script'
 import React, { useContext } from 'react'
 
 export default function NavigationBar() {
     const user: any = useContext(firebaseAuthContext)
+
+    // const [s, setS] = useState("")
+
+    // useEffect(()=> {
+    //     setTimeout(()=> {
+    //         setS("worked")
+    //     }, 5000)
+    // }, [])
 
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900 sticky top-0">
@@ -49,32 +59,35 @@ export default function NavigationBar() {
                                     </Link>
                                 </div>
                                 :
-                                <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                                    <img className="w-8 h-8 rounded-full" src={user?.photoURL} alt="user photo" />
-                                </button>
+                                <Dropdown
+                                    label=""
+                                    renderTrigger={
+                                        () => <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                                            <img className="w-8 h-8 rounded-full" src={user?.photoURL} alt="user photo" />
+                                        </button>
+                                    }
+                                >
+                                    <Dropdown.Header>
+                                        <span className="block text-sm">{user?.displayName}</span>
+                                        <span className="block truncate text-sm font-medium">{user?.email}</span>
+                                    </Dropdown.Header>
+                                    <Dropdown.Item>
+                                        <Link href={"/profile"} >
+                                            Profile
+                                        </Link>
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item onClick={() => signOut(auth)} >Sign out</Dropdown.Item>
+                                </Dropdown>
 
                         }
 
-                        <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                            <div className="px-4 py-3">
-                                <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                            </div>
-                            <ul className="py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                                </li>
-                                <li onClick={() => signOut(auth)} >
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                                </li>
-                            </ul>
-                        </div>
+
+
+
+
+
+
                     </div>
                 </div>
 
@@ -112,6 +125,7 @@ export default function NavigationBar() {
                     </ul>
                 </div>
             </div>
+            <Script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" strategy='beforeInteractive' />
         </nav>
     )
 }
