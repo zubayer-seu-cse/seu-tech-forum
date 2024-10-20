@@ -1,12 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function ListQuestions() {
+export default function ListOfStatus() {
     return (
-
-
         <>
-            <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white text-center mb-[50px] mt-[50px]">Questions</h1>
+            <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white text-center mb-[50px] mt-[50px]">Your Feed</h1>
             <div className="w-[60%] mx-auto my-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-4 flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist" >
                     {/* author image */}
@@ -74,7 +72,5 @@ export default function ListQuestions() {
                 </div>
             </div>
         </>
-
-
     )
 }
