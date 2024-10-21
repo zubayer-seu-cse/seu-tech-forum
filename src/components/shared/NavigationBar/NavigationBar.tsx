@@ -8,7 +8,7 @@ import Script from 'next/script'
 import React, { useContext } from 'react'
 
 export default function NavigationBar() {
-    const user: any = useContext(firebaseAuthContext)
+    const user: any = useContext(firebaseAuthContext) 
 
     // const [s, setS] = useState("")
 
