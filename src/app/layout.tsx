@@ -40,7 +40,7 @@ export default function RootLayout({
         >
           <NavigationBar />
           {children}
-          <Script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js" strategy="afterInteractive" />
+          <Script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" />
           {/* <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script> */}
           {/* <Script src="../../node_modules/flowbite/dist/flowbite.js" /> */}
         </body>
