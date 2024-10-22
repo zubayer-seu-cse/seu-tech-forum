@@ -29,11 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning >
-      <head>
-        {/* <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" /> */}
-        {/* <link href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" rel="stylesheet" /> */}
-      </head>
+    <html lang="en" className="dark" >
       <FirebaseAuthProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -41,8 +37,6 @@ export default function RootLayout({
           <NavigationBar />
           {children}
           <Script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" />
-          {/* <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script> */}
-          {/* <Script src="../../node_modules/flowbite/dist/flowbite.js" /> */}
         </body>
         <Footer />
       </FirebaseAuthProvider>
