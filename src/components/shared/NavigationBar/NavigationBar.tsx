@@ -4,19 +4,10 @@ import { auth } from '@/lib/firebase/config'
 import { signOut } from 'firebase/auth'
 import { Dropdown } from 'flowbite-react'
 import Link from 'next/link'
-import Script from 'next/script'
 import React, { useContext } from 'react'
 
 export default function NavigationBar() {
     const user: any = useContext(firebaseAuthContext)
-
-    // const [s, setS] = useState("")
-
-    // useEffect(()=> {
-    //     setTimeout(()=> {
-    //         setS("worked")
-    //     }, 5000)
-    // }, [])
 
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900 sticky top-0">
