@@ -117,7 +117,6 @@ export default function NavigationBar() {
                     </ul>
                 </div>
             </div>
-            <Script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js" strategy='beforeInteractive' />
         </nav>
     )
 }
